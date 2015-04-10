@@ -23,11 +23,11 @@ int main(int argc, char **argv)
         int ix;
         for(ix = 0; ix < atoi(argv[1]); ++ix)
         {
-                temperature = fopen("/sys/class/thermal/thermal_zone0/temp", "r$
+                temperature = fopen("/sys/class/thermal/thermal_zone0/temp", "r");
                 fgets(temp_string, 7, temperature);
 
                 temp_number = atof(temp_string) / 1000;
-                sprintf(command_string,"http://%s/server/income/?did=%s&action=$
+                sprintf(command_string,"http://%s/server/income/?did=%s&action=put&value=%f", serveraddr, did, temp_number);
                 printf("%s", command_string);
                 dataSend(command_string);
                 fclose(temperature);
@@ -35,6 +35,12 @@ int main(int argc, char **argv)
         }
         return 1;
 }
+
+                fgets(temp_string, 7, temperature);
+                temp_number = atof(temp_string) / 1000;
+                sprintf(command_string,
+
+
 
 void dataSend(char* str)
 {
