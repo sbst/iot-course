@@ -36,12 +36,6 @@ int main(int argc, char **argv)
         return 1;
 }
 
-                fgets(temp_string, 7, temperature);
-                temp_number = atof(temp_string) / 1000;
-                sprintf(command_string,
-
-
-
 void dataSend(char* str)
 {
   CURL *curl;
